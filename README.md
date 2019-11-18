@@ -6,6 +6,9 @@ Course Material for SaltConf19's intermediate-level networking lab
 
 This class employs a jump box that is preconfigured to provide access to your networking lab.  To begin, use any terminal emulator to log in to the lab jump box using the IP, username, and credentials provided during the presentation.
 
+From the jump box, log in to your individual lab according to your piece of paper, e.g.:
+`ssh Lab1-100`
+
 ## Configuring Salt for NetOps: Arista and NAPALM
 
 - We will use pip (already installed) to bring in many python dependencies.
