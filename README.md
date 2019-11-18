@@ -9,13 +9,17 @@ This class employs a jump box that is preconfigured to provide access to your ne
 `pip install pyeapi` - works great!
 `pip install napalm` - error!
 
-```error in ncclient setup command: 'install_requires' must be a string or list of strings containing valid project/version requirement specifiers```
+```
+error in ncclient setup command: 'install_requires' must be a string or list of strings containing valid project/version requirement specifiers
+```
     
 - yum brings in an ancient python-setuptools.  Update it.
 `pip install -U setuptools` - Yes, it was really old.
 `pip install napalm` - another error!
 
-```ERROR: Cannot uninstall 'requests'. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.```
+```
+ERROR: Cannot uninstall 'requests'. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.
+```
 
 - yum has given us another gift, this time in the form of an unresolvable dependency.  Let's kill it and get a non-distro version.
 `rpm -e --nodeps python-requests`
@@ -31,7 +35,8 @@ This class employs a jump box that is preconfigured to provide access to your ne
 
 ## Handling user and API configuration for vEOS
 `ssh ec2-user@veos`
-```enable
+```
+enable
 conf t
 username admin secret 0 SaltConf19
 management api http-commands
@@ -40,16 +45,21 @@ protocol http
 exit
 exit
 write
-exit```
+exit
+```
 
 ## Starting and Troubleshooting Proxy Minions
 `salt-proxy --proxyid=pyeapi -l debug` -- any problems?
 - A good thing to see is:
-```[INFO    ] Running scheduled job: __mine_interval```
+```
+[INFO    ] Running scheduled job: __mine_interval
+```
 `salt-proxy --proxyid=pyeapi -d` -- unless you like it in the foreground
 `salt-proxy --proxyid=napalm -l debug`
 - Hopefully you get:
-```[DEBUG   ] eapi_response: {u'jsonrpc': u'2.0', u'id': u'139930508619856', u'result': [...```
+```
+[DEBUG   ] eapi_response: {u'jsonrpc': u'2.0', u'id': u'139930508619856', u'result': [...
+```
 `salt-proxy --proxyid=napalm -d`
 
 ## Maybe the execution modules just work
