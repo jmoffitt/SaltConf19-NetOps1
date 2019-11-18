@@ -89,7 +89,7 @@ exit
 
 `salt pyeapi pyeapi.run_commands 'show version'`
 
-`salt napalm napalm.cli 'show version'`
+`salt napalm napalm.pyeapi_run_commands 'show version'`
 
 ## Next Steps
 
