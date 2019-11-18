@@ -54,13 +54,12 @@ ERROR: Cannot uninstall 'requests'. It is a distutils installed project and thus
 
 ```
 enable
-conf t
+configure terminal
 username admin secret 0 SaltConf19
 management api http-commands
 no shutdown
 protocol http
-exit
-exit
+end
 write
 exit
 ```
@@ -89,7 +88,9 @@ exit
 
 `salt pyeapi pyeapi.run_commands 'show version'`
 
-`salt napalm napalm.cli 'show version'`
+`salt napalm napalm.pyeapi_run_commands 'show version'`
+or
+`salt napalm net.cli 'show version'`
 
 ## Next Steps
 
