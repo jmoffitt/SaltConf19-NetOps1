@@ -6,6 +6,9 @@ Course Material for SaltConf19's intermediate-level networking lab
 
 This class employs a jump box that is preconfigured to provide access to your networking lab.  To begin, use any terminal emulator to log in to the lab jump box using the IP, username, and credentials provided during the presentation.
 
+From the jump box, log in to your individual lab according to your piece of paper, e.g.:
+`ssh Lab1-100`
+
 ## Configuring Salt for NetOps: Arista and NAPALM
 
 - We will use pip (already installed) to bring in many python dependencies.
@@ -54,13 +57,12 @@ ERROR: Cannot uninstall 'requests'. It is a distutils installed project and thus
 
 ```
 enable
-conf t
+configure terminal
 username admin secret 0 SaltConf19
 management api http-commands
 no shutdown
 protocol http
-exit
-exit
+end
 write
 exit
 ```
@@ -90,6 +92,8 @@ exit
 `salt pyeapi pyeapi.run_commands 'show version'`
 
 `salt napalm napalm.pyeapi_run_commands 'show version'`
+or
+`salt napalm net.cli 'show version'`
 
 ## Next Steps
 
